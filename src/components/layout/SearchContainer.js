@@ -1,16 +1,29 @@
-import React, { useContext } from 'react'
-import useCountries from '../../utils/useCountries'
+import React, { useContext, useEffect, Fragment } from 'react'
 import Select from '../Select/Select'
 import { RegionContext } from '../../context/regionContext'
 
 function SearchContainer() {
   const context = useContext( RegionContext )
-  const { countries } = useCountries()
+  
+  const regions = [ { name: 'Europe', alpha2code: 'europe' }, { name: 'Asia', alpha2code: 'asia' } ]
+
+  const onChange = ( event ) => {
+    context.region.set( event.target.value )
+  }
+  
+  useEffect( () => {
+    context.region.set( context.region.get )
+  }, [] )
 
   return (
-    <div>
-      <Select data={ countries } defaultValue="Select a country" />
-    </div>
+    <RegionContext.Consumer>
+      { ( context ) => (
+        <Fragment>
+          <Select data={ context.countriesByRegion.get } loading={ context.loading.get } defaultValue="Select a country" />
+          <Select data={ regions } defaultValue="Select a region" onChange={ onChange } />
+        </Fragment>
+      ) }
+    </RegionContext.Consumer>
   )
 }
 
