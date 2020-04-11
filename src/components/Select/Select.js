@@ -2,7 +2,7 @@ import React from 'react'
 
 function Select( { data, defaultValue, loading, onChange } ) {
   if ( data === undefined || loading ) {
-    return <div>Loading</div>
+    return null
   }
 
   const list = data.map( item => {
