@@ -5,10 +5,12 @@ export const RegionContext = React.createContext()
 function RegionContextProvider( { children } ) {
   const [ region, setRegion ] = useState( 'europe' )
   const [ countries, setCountries ] = useState()
-  const [ loading, setLoading ] = useState()
+  const [ loading, setLoading ] = useState( true )
   const [ error, setError ] = useState()
 
   async function getCountries( region ) {
+    setLoading( true )
+
     const data = await fetch( `https://restcountries.eu/rest/v2/region/${region}` )
     .then( ( response ) => response.json() )
     .catch( ( error ) => setError( error ) )
