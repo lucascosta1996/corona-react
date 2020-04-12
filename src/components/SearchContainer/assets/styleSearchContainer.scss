@@ -1,0 +1,14 @@
+.search-container-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 88%;
+  padding-bottom: 25px;
+  padding-top: 50px;
+
+  @media ( max-width: 1024px ) {
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 300px;
+  }
+}

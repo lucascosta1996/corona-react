@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, Fragment, useState } from 'react'
 import Select from '../Select/Select'
 import { RegionContext } from '../../context/RegionContext'
+import Country from '../CountryDetected.js/Country'
+import './assets/styleSearchContainer.scss'
 
 function SearchContainer() {
   const context = useContext( RegionContext )
   const [ firstRender, setFirstRender ] = useState( false )
   const [ realRegion, setRealRegion ] = useState()
+  const [ countryDetected, setCountryDetected ] = useState()
   
   const regions = [
     { name: 'Africa', alpha2code: 'Africa' },
@@ -34,17 +37,21 @@ function SearchContainer() {
 
 
   async function setRegion( countryCode ) {
-    const data = await fetch( `https://restcountries.eu/rest/v2/alpha/${countryCode}` ).then( ( response ) => response.json() )
-    //const region = regions.filter( region => region.name === data.region )
-    context.region.set( data.region )
+    const country = await fetch( `https://restcountries.eu/rest/v2/alpha/${countryCode}` ).then( ( response ) => response.json() )
+    //const region = regions.filter( region => region.name === country.region )
+    context.region.set( country.region )
+    setCountryDetected( country )
   }
 
   return (
     <RegionContext.Consumer>
       { ( context ) => (
         <Fragment>
-          <Select data={ context.countriesByRegion.get } loading={ context.loading.get } defaultValue="Select a country" />
-          <Select data={ regions } loading={ context.loading.get } defaultValue={ context.region.get } onChange={ onChange } />
+          <Country country={ countryDetected } countries={ context.countriesByRegion.get } />
+          <nav className="search-container-wrapper">
+            <Select data={ context.countriesByRegion.get } loading={ context.loading.get } defaultValue="Select a country" />
+            <Select data={ regions } loading={ context.loading.get } defaultValue={ context.region.get } onChange={ onChange } />
+          </nav>
         </Fragment>
       ) }
     </RegionContext.Consumer>

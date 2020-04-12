@@ -1,0 +1,17 @@
+.select {
+  background-color: #2b3945;
+  border: none;
+  border-radius: 2px;
+  color: #ffffff;
+  font-family: 'Nunito Sans', sans-serif;
+  padding: 10px;
+
+  @media ( max-width: 1024px ) {
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+
+.option {
+  padding: 10px;
+}
