@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, Fragment, useState } from 'react'
 import Select from '../Select/Select'
-import { RegionContext } from '../../context/regionContext'
+import { RegionContext } from '../../context/RegionContext'
 
 function SearchContainer() {
   const context = useContext( RegionContext )
@@ -19,6 +19,12 @@ function SearchContainer() {
     context.region.set( event.target.value )
   }
   
+  async function detectRegion() { 
+    const data = await fetch( 'http://ip-api.com/json' ).then( ( response ) => response.json() )
+    setRealRegion( data )
+    setRegion( data.countryCode )
+  }
+
   useEffect( () => {
     if ( !firstRender ) {
       detectRegion()
@@ -26,15 +32,10 @@ function SearchContainer() {
     }
   }, [ context.region.get ] )
 
-  async function detectRegion() { 
-    const data = await fetch( 'http://ip-api.com/json' ).then( ( response ) => response.json() )
-    setRealRegion( data )
-    setRegion( data.countryCode )
-  }
 
   async function setRegion( countryCode ) {
     const data = await fetch( `https://restcountries.eu/rest/v2/alpha/${countryCode}` ).then( ( response ) => response.json() )
-    const region = regions.filter( region => region.name === data.region )
+    //const region = regions.filter( region => region.name === data.region )
     context.region.set( data.region )
   }
 

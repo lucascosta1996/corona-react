@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { RegionContext } from '../../context/regionContext'
+import { RegionContext } from '../../context/RegionContext'
 import CountryCard from './CountryCard'
 
 export default function CountriesList() {
@@ -10,7 +10,7 @@ export default function CountriesList() {
   if ( loading || countries === undefined ) return null
 
   return ( 
-    <ul>
+    <ul className="countries-list-wrapper">
       {
         countries.map( country => (
           <CountryCard country={ country } key={ country.name }></CountryCard>
