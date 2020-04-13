@@ -42,6 +42,39 @@
     }
   }
 
+  .corona-stats {
+    padding-top: 10px;
+
+    .corona-title {
+      color: #ffffff;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 18px;
+
+      @media ( max-width: 1024px ) {
+        font-size: 16px;
+      }
+    }
+
+    .info-wrapper {
+      color: #ffffff;
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 14px;
+      line-height: 20px;
+      
+      @media ( max-width: 1024px ) {
+        font-size: 12px;
+      }
+      
+      .info-label {
+        font-weight: 600;
+      }
+
+      .info-content {
+        font-weight: 400;
+      }
+    }
+  }
+
   .main-info-columns {
     display: flex;
   }

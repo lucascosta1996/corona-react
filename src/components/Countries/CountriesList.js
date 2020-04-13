@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { RegionContext } from '../../context/RegionContext'
 import CountryCard from './CountryCard'
+import { Link } from 'react-router-dom'
 
 export default function CountriesList() {
   const context = useContext( RegionContext )
@@ -13,7 +14,9 @@ export default function CountriesList() {
     <ul className="countries-list-wrapper">
       {
         countries.map( country => (
-          <CountryCard country={ country } key={ country.name }></CountryCard>
+          <Link to={`/country/${country.name}`}>
+            <CountryCard country={ country } key={ country.name }></CountryCard>
+          </Link>
         ) )
       }
     </ul>

@@ -4,13 +4,18 @@ import './App.scss';
 import RegionContextProvider from './context/RegionContext';
 import SearchContainer from './components/SearchContainer/SearchContainer';
 import CountriesList from './components/Countries/CountriesList';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <RegionContextProvider>
-      <SearchContainer />
-      <CountriesList />
-    </RegionContextProvider>
+    <Router>
+      <RegionContextProvider>
+       <Route path="/">
+          <SearchContainer />
+          <CountriesList />
+       </Route>
+      </RegionContextProvider>
+    </Router>
   );
 }
 

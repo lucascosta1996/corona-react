@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import "./assets/countriesStyle.scss"
+import useCovid from '../../hooks/useCovid'
 
 function CountryCard( { country } ) {
+  const { countryCovid, error } = useCovid( country )
+
   return (
     <li className="country-card">
       <img className="country-card-flag" src={ country.flag } />
@@ -11,14 +14,24 @@ function CountryCard( { country } ) {
           <span className="info-label">Population: </span>
           <span className="info-content">{ country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }</span>
         </div>
-        <div className="info-wrapper">
-          <span className="info-label">Region: </span>
-          <span className="info-content">{ country.region }</span>
-        </div>
-        <div className="info-wrapper">
-          <span className="info-label">Capital: </span>
-          <span className="info-content">{ country.capital || '—' }</span>
-        </div>
+       {
+         ( countryCovid && !countryCovid.error ) && (
+           <Fragment>
+              <div className="info-wrapper">
+                <span className="info-label">Confirmed cases: </span>
+                <span className="info-content">{ countryCovid.confirmed.value || '—' }</span>
+              </div>
+              <div className="info-wrapper">
+                <span className="info-label">Recovered: </span>
+                <span className="info-content">{ countryCovid.recovered.value || '—' }</span>
+              </div>
+              <div className="info-wrapper">
+                <span className="info-label">Deaths: </span>
+                <span className="info-content">{ countryCovid.deaths.value || '—' }</span>
+              </div>
+           </Fragment>
+         )
+       }
       </section>
     </li>
   )

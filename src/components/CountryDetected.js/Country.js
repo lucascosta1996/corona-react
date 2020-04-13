@@ -1,13 +1,19 @@
 import React from 'react'
+import useCovid from '../../hooks/useCovid'
 import './assets/styleCountry.scss'
 
 function Country( { country, countries } ) {
+  const { countryCovid } = useCovid( country )
+  
   if ( country === undefined || countries === undefined) {
     return null
   }
 
+  console.log( countryCovid )
+  
+
   //country.borders.map( country => countries.find( code => { if(country == code.alpha3code) {} console.log( 'alpha3code', code.alpha3code ); console.log( 'country', country ); debugger} )  )
-  console.log( country )
+  //console.log( country )
   return (
     <div className="country-detected-wrapper">
       <img className="country-flag" src={ country.flag } />
@@ -55,14 +61,25 @@ function Country( { country, countries } ) {
             </div>
          </div>
         </section>
-        {/* <section>
-          <span>Border Countries:</span>
-          <ul>
-            {
-              // country.borders.map( country => { debugger }  )
-            }
-          </ul>
-        </section> */}
+        {
+          countryCovid && (
+            <section className="corona-stats">
+              <h2 className="corona-title">Coronavirus:</h2>
+              <div className="info-wrapper">
+                <span className="info-label">Confirmed cases: </span>
+                <span className="info-content">{ countryCovid.confirmed.value }</span>
+              </div>
+              <div className="info-wrapper">
+                <span className="info-label">Recovered: </span>
+                <span className="info-content">{ countryCovid.recovered.value }</span>
+              </div>
+              <div className="info-wrapper">
+                <span className="info-label">Deaths: </span>
+                <span className="info-content">{ countryCovid.deaths.value }</span>
+              </div>
+            </section>
+          )
+        }
       </div>
     </div>
   )
