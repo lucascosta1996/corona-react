@@ -77,11 +77,9 @@
 
   .main-info-columns {
     display: flex;
-  }
 
-  .left-column {
     @media ( max-width: 1024px ) {
-      max-width: 166px;
+      flex-direction: column;
     }
   }
 

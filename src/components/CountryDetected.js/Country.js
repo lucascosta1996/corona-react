@@ -2,14 +2,12 @@ import React from 'react'
 import useCovid from '../../hooks/useCovid'
 import './assets/styleCountry.scss'
 
-function Country( { country, countries } ) {
+function Country( { country } ) {
   const { countryCovid } = useCovid( country )
   
-  if ( country === undefined || countries === undefined) {
+  if ( country === undefined ) {
     return null
   }
-
-  console.log( countryCovid )
   
 
   //country.borders.map( country => countries.find( code => { if(country == code.alpha3code) {} console.log( 'alpha3code', code.alpha3code ); console.log( 'country', country ); debugger} )  )
@@ -62,12 +60,12 @@ function Country( { country, countries } ) {
          </div>
         </section>
         {
-          countryCovid && (
+          ( countryCovid && !countryCovid.error ) ? (
             <section className="corona-stats">
-              <h2 className="corona-title">Coronavirus:</h2>
+              <h2 className="corona-title">COVID-19 status:</h2>
               <div className="info-wrapper">
                 <span className="info-label">Confirmed cases: </span>
-                <span className="info-content">{ countryCovid.confirmed.value }</span>
+                <span className="info-content">{ countryCovid.confirmed.value || '' }</span>
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Recovered: </span>
@@ -77,6 +75,10 @@ function Country( { country, countries } ) {
                 <span className="info-label">Deaths: </span>
                 <span className="info-content">{ countryCovid.deaths.value }</span>
               </div>
+            </section>
+          ) : (
+            <section className="corona-stats">
+              <h2 className="corona-title"> It was not possible to retrieve any data about Covid-19 in this country :( </h2>
             </section>
           )
         }

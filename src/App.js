@@ -5,15 +5,17 @@ import RegionContextProvider from './context/RegionContext';
 import SearchContainer from './components/SearchContainer/SearchContainer';
 import CountriesList from './components/Countries/CountriesList';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import CountryPage from './components/CountryPage/CountryPage';
 
 function App() {
   return (
     <Router>
       <RegionContextProvider>
-       <Route path="/">
+       <Route exact path="/">
           <SearchContainer />
           <CountriesList />
        </Route>
+       <Route path="/:id" component={ CountryPage } />
       </RegionContextProvider>
     </Router>
   );

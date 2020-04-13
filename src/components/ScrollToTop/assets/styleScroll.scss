@@ -1,0 +1,8 @@
+.scroll-top-button {
+  &:not([data-scroll='0']) {
+    background-color: red;
+  }
+  bottom: 20px;
+  position: fixed;
+  right: 20px;
+}

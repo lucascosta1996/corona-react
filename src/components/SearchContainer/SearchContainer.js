@@ -7,7 +7,6 @@ import './assets/styleSearchContainer.scss'
 function SearchContainer() {
   const context = useContext( RegionContext )
   const [ firstRender, setFirstRender ] = useState( false )
-  const [ realRegion, setRealRegion ] = useState()
   const [ countryDetected, setCountryDetected ] = useState()
   
   const regions = [
@@ -24,7 +23,6 @@ function SearchContainer() {
   
   async function detectRegion() { 
     const data = await fetch( 'http://ip-api.com/json' ).then( ( response ) => response.json() )
-    setRealRegion( data )
     setRegion( data.countryCode )
   }
 
@@ -49,7 +47,6 @@ function SearchContainer() {
         <Fragment>
           <Country country={ countryDetected } countries={ context.countriesByRegion.get } />
           <nav className="search-container-wrapper">
-            <Select data={ context.countriesByRegion.get } loading={ context.loading.get } defaultValue="Select a country" />
             <Select data={ regions } loading={ context.loading.get } defaultValue={ context.region.get } onChange={ onChange } />
           </nav>
         </Fragment>

@@ -5,6 +5,7 @@
   margin: 0 auto;
   max-width: 90%;
   padding-left: 0;
+  padding-bottom: 60px;
 
   @media ( max-width: 1024px ) {
     align-items: center;
@@ -58,5 +59,4 @@
       }
     }
   }
-
 }

@@ -1,12 +1,19 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { RegionContext } from '../../context/RegionContext'
 import CountryCard from './CountryCard'
 import { Link } from 'react-router-dom'
+import ScrollToTop from '../ScrollToTop/ScrollToTop'
 
 export default function CountriesList() {
   const context = useContext( RegionContext )
   const countries = context.countriesByRegion.get
   const loading = context.loading.get
+
+  useEffect( () => {
+    if ( window.scrollY > 1000 ) {
+      console.log( window.scrollY )
+    }
+  }, [window] )
 
   if ( loading || countries === undefined ) return null
 
@@ -14,8 +21,16 @@ export default function CountriesList() {
     <ul className="countries-list-wrapper">
       {
         countries.map( country => (
-          <Link to={`/country/${country.name}`}>
-            <CountryCard country={ country } key={ country.name }></CountryCard>
+          <Link
+            key={ country.name }
+            to={ {
+              pathname: `/${country.name}`,
+              state: {
+                country
+              } }
+            }
+          >
+            <CountryCard country={ country }></CountryCard>
           </Link>
         ) )
       }
