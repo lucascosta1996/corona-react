@@ -22,7 +22,7 @@ function SearchContainer() {
   }
   
   async function detectRegion() { 
-    const data = await fetch( 'https://api.ipfind.com/?ip=177.134.43.61&auth=04535980-8660-49ed-a3b6-cedc3a9bb928' ).then( ( response ) => response.json() )
+    const data = await fetch( 'https://api.ipfind.com/me?auth=04535980-8660-49ed-a3b6-cedc3a9bb928' ).then( ( response ) => response.json() )
     setRegion( data.country_code )
   }
 
