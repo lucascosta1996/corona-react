@@ -78,7 +78,7 @@ function Country( { country } ) {
             </section>
           ) : (
             <section className="corona-stats">
-              <h2 className="corona-title"> It was not possible to retrieve any data about Covid-19 in this country :( </h2>
+              <h2 className="corona-title"> Country { country.name } not found in JHU database :( </h2>
             </section>
           )
         }
