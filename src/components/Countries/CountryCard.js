@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import "./assets/countriesStyle.scss";
 import useCovid from '../../hooks/useCovid';
 import { formatNumberWithComma } from '../../utils/helpers';
+import "./assets/countriesStyle.scss";
 
 function CountryCard( { country } ) {
-  const { countryCovid, error } = useCovid( country );
+  const { countryCovid } = useCovid( country );
 
   return (
     <li className="country-card">
