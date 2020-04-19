@@ -16,9 +16,15 @@
 .country-card {
   background-color: #2b3945;
   border-radius: 6px;
+  cursor: pointer;
   max-width: 300px;
   margin: 20px 10px;
   list-style: none;
+  transition: box-shadow .3s ease;
+
+  &:hover {
+    box-shadow: -2px 2px 17px -3px rgba(0,0,0,0.75);
+  }
 
   @media ( max-width: 1024px ) {
     margin: 20px 0;
