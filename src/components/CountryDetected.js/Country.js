@@ -14,7 +14,7 @@ function Country( { country } ) {
   //console.log( country )
   return (
     <div className="country-detected-wrapper">
-      <img className="country-flag" src={ country.flag } />
+      <img alt={ `${country.name} flag` } className="country-flag" src={ country.flag } />
       <div className="country-info-container">
         <header>
           <h2 className="country-title">

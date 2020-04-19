@@ -8,7 +8,7 @@ function CountryCard( { country } ) {
 
   return (
     <li className="country-card">
-      <img className="country-card-flag" src={ country.flag } />
+      <img alt={ `${country.name} flag` } className="country-card-flag" src={ country.flag } />
       <section className="country-card-info-wrapper">
         <h2 className="country-card-title">{ country.name }</h2>
         <div className="info-wrapper">
