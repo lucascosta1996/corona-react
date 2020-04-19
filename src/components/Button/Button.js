@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Button( { className, label, route } ) {
+function Button( { className, label, pathName } ) {
   return (
-    <Link className={ className } to={ route } id="back">
+    <Link className={ className } to={ pathName } id="back">
       { label }
     </Link>
   )
