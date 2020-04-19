@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react'
-import "./assets/countriesStyle.scss"
-import useCovid from '../../hooks/useCovid'
+import React, { Fragment } from 'react';
+import "./assets/countriesStyle.scss";
+import useCovid from '../../hooks/useCovid';
+import { formatNumberWithComma } from '../../utils/helpers';
 
 function CountryCard( { country } ) {
-  const { countryCovid, error } = useCovid( country )
+  const { countryCovid, error } = useCovid( country );
 
   return (
     <li className="country-card">
@@ -19,22 +20,22 @@ function CountryCard( { country } ) {
            <Fragment>
               <div className="info-wrapper">
                 <span className="info-label">Confirmed cases: </span>
-                <span className="info-content">{ countryCovid.confirmed.value || '-' }</span>
+                <span className="info-content">{ formatNumberWithComma( countryCovid.confirmed.value ) || '-' }</span>
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Recovered: </span>
-                <span className="info-content">{ countryCovid.recovered.value || '-' }</span>
+                <span className="info-content">{ formatNumberWithComma( countryCovid.recovered.value ) || '-' }</span>
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Deaths: </span>
-                <span className="info-content">{ countryCovid.deaths.value || '-' }</span>
+                <span className="info-content">{ formatNumberWithComma( countryCovid.deaths.value ) || '-' }</span>
               </div>
            </Fragment>
          )
        }
       </section>
     </li>
-  )
-}
+  );
+};
 
-export default CountryCard
+export default CountryCard;

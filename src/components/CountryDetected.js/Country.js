@@ -1,14 +1,14 @@
-import React from 'react'
-import useCovid from '../../hooks/useCovid'
-import './assets/styleCountry.scss'
+import React from 'react';
+import useCovid from '../../hooks/useCovid';
+import { formatNumberWithComma } from '../../utils/helpers';
+import './assets/styleCountry.scss';
 
 function Country( { country } ) {
-  const { countryCovid } = useCovid( country )
+  const { countryCovid } = useCovid( country );
   
   if ( country === undefined ) {
-    return null
-  }
-  
+    return null;
+  };
 
   //country.borders.map( country => countries.find( code => { if(country == code.alpha3code) {} console.log( 'alpha3code', code.alpha3code ); console.log( 'country', country ); debugger} )  )
   //console.log( country )
@@ -65,15 +65,15 @@ function Country( { country } ) {
               <h2 className="corona-title">COVID-19 status:</h2>
               <div className="info-wrapper">
                 <span className="info-label">Confirmed cases: </span>
-                <span className="info-content">{ countryCovid.confirmed.value || '-' }</span>
+                <span className="info-content">{ formatNumberWithComma( countryCovid.confirmed.value ) || '-' }</span>
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Recovered: </span>
-                <span className="info-content">{ countryCovid.recovered.value || '-' }</span>
+                <span className="info-content">{ formatNumberWithComma( countryCovid.recovered.value ) || '-' }</span>
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Deaths: </span>
-                <span className="info-content">{ countryCovid.deaths.value || '-' }</span>
+                <span className="info-content">{ formatNumberWithComma( countryCovid.deaths.value ) || '-' }</span>
               </div>
             </section>
           ) : (
@@ -84,7 +84,7 @@ function Country( { country } ) {
         }
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Country
+export default Country;

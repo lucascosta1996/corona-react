@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import RegionContextProvider from './context/RegionContext';
 import SearchContainer from './components/SearchContainer/SearchContainer';
@@ -19,6 +18,6 @@ function App() {
       </RegionContextProvider>
     </Router>
   );
-}
+};
 
 export default App;
