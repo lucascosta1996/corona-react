@@ -65,15 +65,15 @@ function Country( { country } ) {
               <h2 className="corona-title">COVID-19 status:</h2>
               <div className="info-wrapper">
                 <span className="info-label">Confirmed cases: </span>
-                <span className="info-content">{ countryCovid.confirmed.value || '' }</span>
+                <span className="info-content">{ countryCovid.confirmed.value || '-' }</span>
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Recovered: </span>
-                <span className="info-content">{ countryCovid.recovered.value }</span>
+                <span className="info-content">{ countryCovid.recovered.value || '-' }</span>
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Deaths: </span>
-                <span className="info-content">{ countryCovid.deaths.value }</span>
+                <span className="info-content">{ countryCovid.deaths.value || '-' }</span>
               </div>
             </section>
           ) : (
