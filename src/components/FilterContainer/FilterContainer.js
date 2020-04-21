@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, Fragment } from 'react'
+import React, { Fragment, useContext, useEffect } from 'react'
 import Select from '../Select/Select'
 import { RegionContext } from '../../context/RegionContext'
 import Country from '../CountryDetected.js/Country'
@@ -55,4 +55,4 @@ function FilterContainer() {
   )
 }
 
-export default FilterContainer
+export default React.memo( FilterContainer )

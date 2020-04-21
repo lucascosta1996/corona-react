@@ -38,4 +38,4 @@ function CountryCard( { country } ) {
   );
 };
 
-export default CountryCard;
+export default React.memo( CountryCard );

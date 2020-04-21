@@ -5,7 +5,7 @@ import CountryCard from './CountryCard';
 import Loading from '../Loading/Loading';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
-export default function CountriesList() {
+function CountriesList() {
   const context = useContext( RegionContext )
   const countries = context.countriesByRegion.get
   const loading = context.loading.get
@@ -40,3 +40,5 @@ export default function CountriesList() {
     </ul>
   )
 }
+
+export default React.memo( CountriesList )

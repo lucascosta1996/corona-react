@@ -87,4 +87,4 @@ function Country( { country } ) {
   );
 };
 
-export default Country;
+export default React.memo( Country );
