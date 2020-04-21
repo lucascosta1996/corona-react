@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from 'react'
-import { RegionContext } from '../../context/RegionContext'
-import CountryCard from './CountryCard'
-import { Link } from 'react-router-dom'
-import ScrollToTop from '../ScrollToTop/ScrollToTop'
+import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { RegionContext } from '../../context/RegionContext';
+import CountryCard from './CountryCard';
+import Loading from '../Loading/Loading';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 export default function CountriesList() {
   const context = useContext( RegionContext )
@@ -13,9 +14,11 @@ export default function CountriesList() {
     if ( window.scrollY > 1000 ) {
       console.log( window.scrollY )
     }
-  }, [window] )
+  }, [ window ] )
 
-  if ( loading || countries === undefined ) return null
+  if ( loading || countries === undefined ) {
+    return <Loading type="bubbles" />
+  }
 
   return ( 
     <ul className="countries-list-wrapper">
