@@ -10,12 +10,6 @@ function CountriesList() {
   const countries = context.countriesByRegion.get
   const loading = context.loading.get
 
-  useEffect( () => {
-    if ( window.scrollY > 1000 ) {
-      console.log( window.scrollY )
-    }
-  }, [ window ] )
-
   if ( loading || countries === undefined ) {
     return <Loading type="bubbles" />
   }
