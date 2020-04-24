@@ -13,16 +13,9 @@
   }
 
   .country-flag {
-    max-width: 460px;
+    width: 460px;
     height: auto;
 
-    @media ( max-width: 1024px ) {
-      max-width: 300px;
-    }
-  }
-
-  .country-flag-replacer {
-    width: 460px;
     @media ( max-width: 1024px ) {
       width: 300px;
     }

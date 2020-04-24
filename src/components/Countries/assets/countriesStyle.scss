@@ -1,7 +1,7 @@
 .countries-list-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin: 0 auto;
   max-width: 90%;
   padding-left: 0;
@@ -18,7 +18,8 @@
   border-radius: 6px;
   cursor: pointer;
   max-width: 300px;
-  margin: 20px 10px;
+  margin: 20px 15px;
+  min-height: 402px;
   list-style: none;
   transition: box-shadow .3s ease;
 
@@ -28,6 +29,7 @@
 
   @media ( max-width: 1024px ) {
     margin: 20px 0;
+    min-height: unset;
   }
 
   .country-card-flag {

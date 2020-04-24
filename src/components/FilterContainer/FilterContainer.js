@@ -1,9 +1,10 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import React, { Fragment, useContext, useEffect, lazy, Suspense } from 'react'
 import Select from '../Select/Select'
 import { RegionContext } from '../../context/RegionContext'
-import Country from '../CountryDetected.js/Country'
 import { detectCountry, getCountryInfo } from '../../utils/helpers'
 import './assets/styleFilterContainer.scss'
+
+const CountryLazyLoad = lazy( () => import( '../Country/Country' ) )
 
 function FilterContainer() {
   const context = useContext( RegionContext )
@@ -38,9 +39,11 @@ function FilterContainer() {
     <RegionContext.Consumer>
       { ( context ) => (
         <Fragment>
-          <Country
-            country={ context.userCountry.get }
-          />
+          <Suspense fallback={ null }>
+            <CountryLazyLoad
+              country={ context.userCountry.get }
+            />
+          </Suspense>
           <nav className="search-container-wrapper">
             <Select
               data={ regions }

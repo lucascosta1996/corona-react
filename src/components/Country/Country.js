@@ -8,7 +8,7 @@ const ImageLazy = lazy( () => import( '../Image/Image' ) );
 function Country( { country } ) {
   const { countryCovid } = useCovid( country );
 
-  const ImageReplace = () => <div className="country-flag-replacer" />
+  const ImageReplace = () => <div className="country-flag" />
   
   if ( country === undefined ) {
     return null;

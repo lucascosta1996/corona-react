@@ -1,5 +1,5 @@
 import React from 'react'
-import Country from '../CountryDetected.js/Country'
+import Country from '../Country/Country'
 import Button from '../Button/Button'
 import { Redirect } from 'react-router-dom'
 import './assets/styleCountryPage.scss'
