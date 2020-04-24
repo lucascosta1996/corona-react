@@ -55,4 +55,4 @@ function FilterContainer() {
   )
 }
 
-export default React.memo( FilterContainer )
+export default FilterContainer

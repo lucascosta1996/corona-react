@@ -1,14 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, lazy, Suspense } from 'react';
 import useCovid from '../../hooks/useCovid';
 import { formatNumberWithComma } from '../../utils/helpers';
 import "./assets/countriesStyle.scss";
+
+const ImageLazy = lazy( () => import( '../Image/Image' ) );
+
+const ImageReplace = () => <div className="country-card-flag" />
 
 function CountryCard( { country } ) {
   const { countryCovid } = useCovid( country );
 
   return (
     <li className="country-card">
-      <img alt={ `${country.name} flag` } className="country-card-flag" src={ country.flag } />
+      <Suspense fallback={ <ImageReplace /> }>
+        <ImageLazy className="country-card-flag" src={ country.flag } countryName={ country.name } />
+      </Suspense>
       <section className="country-card-info-wrapper">
         <h2 className="country-card-title">{ country.name }</h2>
         <div className="info-wrapper">

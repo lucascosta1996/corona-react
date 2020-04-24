@@ -13,11 +13,11 @@ function App() {
     <Router>
       <Suspense fallback={ <Loading /> }>
         <RegionContextProvider>
-        <Route exact path="/">
+          <Route exact path="/">
             <FilterContainer />
             <CountriesListLazy />
-        </Route>
-        <Route path="/:id" component={ CountryPage } />
+          </Route>
+          <Route path="/:id" component={ CountryPage } />
         </RegionContextProvider>
       </Suspense>
     </Router>

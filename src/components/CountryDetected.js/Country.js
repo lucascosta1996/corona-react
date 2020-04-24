@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import useCovid from '../../hooks/useCovid';
 import { formatNumberWithComma } from '../../utils/helpers';
 import './assets/styleCountry.scss';
 
+const ImageLazy = lazy( () => import( '../Image/Image' ) );
+
 function Country( { country } ) {
   const { countryCovid } = useCovid( country );
+
+  const ImageReplace = () => <div className="country-flag-replacer" />
   
   if ( country === undefined ) {
     return null;
@@ -14,7 +18,9 @@ function Country( { country } ) {
   //console.log( country )
   return (
     <div className="country-detected-wrapper">
-      <img alt={ `${country.name} flag` } className="country-flag" src={ country.flag } />
+      <Suspense fallback={ <ImageReplace /> }>
+        <ImageLazy className="country-flag" src={ country.flag } countryName={ country.name } />
+      </Suspense>
       <div className="country-info-container">
         <header>
           <h2 className="country-title">

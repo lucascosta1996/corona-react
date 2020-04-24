@@ -21,6 +21,13 @@
     }
   }
 
+  .country-flag-replacer {
+    width: 460px;
+    @media ( max-width: 1024px ) {
+      width: 300px;
+    }
+  }
+
   .country-info-container {
     padding-left: 120px;
     word-break: break-all;
