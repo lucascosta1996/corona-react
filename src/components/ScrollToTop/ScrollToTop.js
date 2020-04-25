@@ -9,7 +9,7 @@ function ScrollToTop() {
   } )
 
   function handleScroll() {
-    const shouldAppear = window.scrollY < 100;
+    const shouldAppear = window.scrollY < 400;
     setHideScroll( shouldAppear );
   }
 
