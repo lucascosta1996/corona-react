@@ -1,11 +1,20 @@
-import React, { useLayoutEffect  } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import './assets/styleScroll.scss'
 
 function ScrollToTop() {
+  const [ hideScroll, setHideScroll ] = useState( true );
+
+  useLayoutEffect( () => {
+    window.addEventListener('scroll', handleScroll, true);
+  } )
+
+  function handleScroll() {
+    const shouldAppear = window.scrollY < 100;
+    setHideScroll( shouldAppear );
+  }
 
   function goToTop() {
     try {
-      // trying to use new API - https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo
       window.scroll({
         top: 0,
         left: 0,
@@ -17,11 +26,15 @@ function ScrollToTop() {
     }
   }
 
-  return (
-    <button className="scroll-top-button" onClick={ () => goToTop() }>
-      Back to top
-    </button>
-  )
+  if ( hideScroll ) {
+    return null
+  } else {
+    return (
+      <button className="scroll-top-button" onClick={ () => goToTop() }>
+        Back to top
+      </button>
+    )
+  }
 }
 
 export default ScrollToTop
