@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useState } from 'react'
+import arrowUp from './assets/iconmonstr-angel-up-thin.svg'
 import './assets/styleScroll.scss'
 
 function ScrollToTop() {
@@ -31,7 +32,7 @@ function ScrollToTop() {
   } else {
     return (
       <button className="scroll-top-button" onClick={ () => goToTop() }>
-        Back to top
+        <img src={ arrowUp } alt="Scroll to top Button" />
       </button>
     )
   }

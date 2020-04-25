@@ -1,8 +1,26 @@
 .scroll-top-button {
   &:not([data-scroll='0']) {
-    background-color: red;
+    background-color: #fafafa;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    transition: all .3s ease;
+    width: 50px;
   }
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+  
   bottom: 20px;
   position: fixed;
   right: 20px;
+
+  img {
+    max-width: 25px;
+    width: 100%;
+  }
 }
