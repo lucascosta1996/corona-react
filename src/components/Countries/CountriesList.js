@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { RegionContext } from '../../context/RegionContext';
+import { RegionContext } from '../../context/regionContext';
 import CountryCard from './CountryCard';
 import Loading from '../Loading/Loading';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';

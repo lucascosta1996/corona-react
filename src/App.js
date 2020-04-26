@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import './App.scss';
-import RegionContextProvider from './context/RegionContext';
+import RegionContextProvider from './context/regionContext';
 import FilterContainer from './components/FilterContainer/FilterContainer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CountryPage from './components/CountryPage/CountryPage';

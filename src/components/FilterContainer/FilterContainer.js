@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect, lazy, Suspense } from 'react'
 import Select from '../Select/Select'
-import { RegionContext } from '../../context/RegionContext'
+import { RegionContext } from '../../context/regionContext'
 import { detectCountry, getCountryInfo } from '../../utils/helpers'
 import './assets/styleFilterContainer.scss'
 
