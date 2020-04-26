@@ -35,7 +35,7 @@ function Country( { country } ) {
             </div>
             <div className="info-wrapper">
               <span className="info-label">Population: </span>
-              <span className="info-content">{ country.population }</span>
+              <span className="info-content">{ formatNumberWithComma( country.population ) }</span>
             </div>
             <div className="info-wrapper">
               <span className="info-label">Region: </span>
@@ -75,11 +75,17 @@ function Country( { country } ) {
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Recovered: </span>
-                <span className="info-content">{ formatNumberWithComma( countryCovid.recovered.value ) || '-' }</span>
+              <span className="info-content">
+                { `${formatNumberWithComma( countryCovid.recovered.value )} | ` || '-' }
+                <i>{ `${Math.round(countryCovid.recovered.value*100/countryCovid.confirmed.value)}% recovery rate` || '' }</i>
+              </span>
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Deaths: </span>
-                <span className="info-content">{ formatNumberWithComma( countryCovid.deaths.value ) || '-' }</span>
+                <span className="info-content">
+                  { `${formatNumberWithComma( countryCovid.deaths.value )} | ` || '-' }
+                  <i>{ `${Math.round(countryCovid.deaths.value*100/countryCovid.confirmed.value)}% fatality rate` || '' }</i>
+                </span>
               </div>
             </section>
           ) : (
