@@ -4,7 +4,6 @@
   @media ( min-width: 1025px ) {
     bottom: 0;
     left: 0;
-    margin: 0 auto;
     position: absolute;
     right: 0;
     top: 0;
@@ -12,21 +11,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    width: 100%;
   }
 
   @media ( max-width: 1024px ) {
     margin: 0 auto;
     max-width: 100%;
-    padding: 60px 0;
+    padding: 30px 0 130px;
   }
 
   .back-wrapper {
     margin: 0 auto;
-    max-width: 88%;
+    width: 88%;
   }
 
   .back {
     background-color: #2b3945;
+    border-radius: 4px;
     box-shadow: 0px 0px 8px 2px #1e272f;
     color: #fff;
     font-family: 'Nunito Sans', sans-serif;

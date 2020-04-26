@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-start;
   margin: 0 auto;
-  max-width: 88%;
+  width: 88%;
   padding-top: 60px;
 
   @media ( max-width: 1024px ) {
@@ -33,9 +33,11 @@
         color: #ffffff;
         font-family: 'Nunito Sans', sans-serif;
         font-size: 20px;
+        margin-top: 0;
 
         @media ( max-width: 1024px ) {
           font-size: 18px;
+          margin-top: 20px;
         }
       }
     }
@@ -58,7 +60,7 @@
       color: #ffffff;
       font-family: 'Nunito Sans', sans-serif;
       font-size: 14px;
-      line-height: 20px;
+      line-height: 26px;
       
       @media ( max-width: 1024px ) {
         font-size: 12px;
@@ -79,6 +81,12 @@
 
     @media ( max-width: 1024px ) {
       flex-direction: column;
+    }
+  }
+
+  .right-column {
+    @media ( min-width: 1024px ) {
+      margin-left: 30px;
     }
   }
 
