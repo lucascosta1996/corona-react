@@ -16,8 +16,13 @@
 
   @media ( max-width: 1024px ) {
     margin: 0 auto;
-    max-width: 300px;
+    max-width: 100%;
     padding: 60px 0;
+  }
+
+  .back-wrapper {
+    margin: 0 auto;
+    max-width: 88%;
   }
 
   .back {

@@ -30,6 +30,7 @@
   @media ( max-width: 1024px ) {
     margin: 20px 0;
     min-height: unset;
+    max-width: 100%;
   }
 
   .country-card-flag {
@@ -38,6 +39,10 @@
     height: 200px;
     object-fit: cover;
     width: 300px;
+
+    @media ( max-width: 1024px ) {
+      width: 100%;
+    }
   }
 
   .country-card-info-wrapper {

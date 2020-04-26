@@ -9,7 +9,6 @@
   @media ( max-width: 1024px ) {
     align-items: flex-start;
     flex-direction: column;
-    max-width: 300px;
   }
 
   .country-flag {
@@ -17,7 +16,7 @@
     height: auto;
 
     @media ( max-width: 1024px ) {
-      width: 300px;
+      max-width: 100%;
     }
   }
 
