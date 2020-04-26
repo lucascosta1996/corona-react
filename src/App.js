@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from 'react';
+import AddToHomescreen from 'react-add-to-homescreen';
 import './App.scss';
 import RegionContextProvider from './context/regionContext';
 import FilterContainer from './components/FilterContainer/FilterContainer';
@@ -11,6 +12,12 @@ import Header from './components/Header/Header';
 const CountriesListLazy = lazy( () => import( './components/Countries/CountriesList' ) );
 
 function App() {
+  const handleAddToHomescreenClick = () => {
+    alert(`
+      1. Open Share menu
+      2. Tap on "Add to Home Screen" button`);
+  };
+
   return (
     <Router>
       <ErrorBoundary>
@@ -24,6 +31,7 @@ function App() {
             <Route path="/:id" component={ CountryPage } />
           </RegionContextProvider>
         </Suspense>
+        <AddToHomescreen onAddToHomescreenClick={handleAddToHomescreenClick} />
       </ErrorBoundary>
     </Router>
   );
