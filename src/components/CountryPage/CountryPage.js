@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Country from '../Country/Country'
 import Button from '../Button/Button'
 import { Redirect } from 'react-router-dom'
 import './assets/styleCountryPage.scss'
 
 function CountryPage( { location } ) {
+  useEffect( () => {
+    window.scrollTo( 0, 0 );
+  } )
+
   if ( location.state === undefined ) {
     return <Redirect to="/" />
   }
@@ -13,7 +17,9 @@ function CountryPage( { location } ) {
 
   return (
     <div className="country-page">
-      <Button className="back" pathName="/" label="&#8592; Back" />
+      <section className="back-wrapper">
+        <Button className="back" pathName="/" label="&#8592; Back" />
+      </section>
       <Country country={ country } />
     </div>
   )
