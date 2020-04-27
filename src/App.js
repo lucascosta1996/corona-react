@@ -20,19 +20,17 @@ function App() {
 
   return (
     <Router>
-      <ErrorBoundary>
-        <Suspense fallback={ <Loading /> }>
-          <RegionContextProvider>
-            <Header />
-            <Route exact path="/">
-              <FilterContainer />
-              <CountriesListLazy />
-            </Route>
-            <Route path="/:id" component={ CountryPage } />
-          </RegionContextProvider>
-        </Suspense>
+      <Suspense fallback={ <Loading /> }>
+        <RegionContextProvider>
+          <Header />
+          <Route exact path="/">
+            <FilterContainer />
+            <CountriesListLazy />
+          </Route>
+          <Route path="/:id" component={ CountryPage } />
+        </RegionContextProvider>
         <AddToHomescreen onAddToHomescreenClick={handleAddToHomescreenClick} />
-      </ErrorBoundary>
+      </Suspense>
     </Router>
   );
 };
