@@ -9,6 +9,7 @@ const ImageReplace = () => <div className="country-card-flag" />
 
 function CountryCard( { country } ) {
   const { countryCovid } = useCovid( country );
+  const hasCovidInfo = countryCovid && !countryCovid.error;
 
   return (
     <li className="country-card">
@@ -21,24 +22,20 @@ function CountryCard( { country } ) {
           <span className="info-label">Population: </span>
           <span className="info-content">{ country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }</span>
         </div>
-       {
-         ( countryCovid && !countryCovid.error ) && (
            <Fragment>
               <div className="info-wrapper">
                 <span className="info-label">Confirmed cases: </span>
-                <span className="info-content">{ formatNumberWithComma( countryCovid.confirmed.value ) || '-' }</span>
+                <span className="info-content">{ hasCovidInfo ? formatNumberWithComma( countryCovid.confirmed.value ) : '-' }</span>
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Recovered: </span>
-                <span className="info-content">{ formatNumberWithComma( countryCovid.recovered.value ) || '-' }</span>
+                <span className="info-content">{ hasCovidInfo ? formatNumberWithComma( countryCovid.recovered.value ) : '-' }</span>
               </div>
               <div className="info-wrapper">
                 <span className="info-label">Deaths: </span>
-                <span className="info-content">{ formatNumberWithComma( countryCovid.deaths.value ) || '-' }</span>
+                <span className="info-content">{ hasCovidInfo ? formatNumberWithComma( countryCovid.deaths.value ) : '-' }</span>
               </div>
            </Fragment>
-         )
-       }
       </section>
     </li>
   );
