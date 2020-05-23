@@ -74,7 +74,10 @@ function Country( { country } ) {
                 <h2 className="corona-title">COVID-19 status:</h2>
                 <div className="info-wrapper">
                   <span className="info-label">Confirmed cases: </span>
-                  <span className="info-content">{ formatNumberWithComma( countryCovid.confirmed.value ) || '-' }</span>
+                  <span className="info-content">
+                    { `${formatNumberWithComma( countryCovid.confirmed.value )} | ` || '-' }
+                    <i>{ `${parseFloat(countryCovid.confirmed.value*100/country.population).toFixed(2)}% of ${country.name} population` }</i>
+                  </span>
                 </div>
                 <div className="info-wrapper">
                   <span className="info-label">Recovered: </span>
@@ -93,7 +96,7 @@ function Country( { country } ) {
               </section>
             ) : (
               <section className="corona-stats">
-                <h2 className="corona-title"> Country { country.name } not found in JHU database :( </h2>
+                <h2 className="corona-title"> Country not found in JHU database :( </h2>
               </section>
             )
           )
