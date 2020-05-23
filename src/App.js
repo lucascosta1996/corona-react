@@ -6,7 +6,6 @@ import FilterContainer from './components/FilterContainer/FilterContainer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CountryPage from './components/CountryPage/CountryPage';
 import Loading from './components/Loading/Loading';
-import ErrorBoundary from './components/ErrorBoundaries/ErrorBoundaries';
 import Header from './components/Header/Header';
 
 const CountriesListLazy = lazy( () => import( './components/Countries/CountriesList' ) );
