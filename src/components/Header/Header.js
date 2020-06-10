@@ -1,6 +1,6 @@
-import React from 'react';
-import './assets/styleHeader.scss';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./assets/styleHeader.scss";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -12,4 +12,4 @@ function Header() {
   );
 }
 
-export default React.memo( Header );
+export default React.memo(Header);

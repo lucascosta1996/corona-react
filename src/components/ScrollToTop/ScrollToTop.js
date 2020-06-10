@@ -1,17 +1,17 @@
-import React, { useLayoutEffect, useState } from 'react'
-import arrowUp from './assets/iconmonstr-angel-up-thin.svg'
-import './assets/styleScroll.scss'
+import React, { useLayoutEffect, useState } from "react";
+import arrowUp from "./assets/iconmonstr-angel-up-thin.svg";
+import "./assets/styleScroll.scss";
 
 function ScrollToTop() {
-  const [ hideScroll, setHideScroll ] = useState( true );
+  const [hideScroll, setHideScroll] = useState(true);
 
-  useLayoutEffect( () => {
-    window.addEventListener('scroll', handleScroll, true);
-  } )
+  useLayoutEffect(() => {
+    window.addEventListener("scroll", handleScroll, true);
+  });
 
   function handleScroll() {
     const shouldAppear = window.scrollY < 400;
-    setHideScroll( shouldAppear );
+    setHideScroll(shouldAppear);
   }
 
   function goToTop() {
@@ -19,7 +19,7 @@ function ScrollToTop() {
       window.scroll({
         top: 0,
         left: 0,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     } catch (error) {
       // just a fallback for older browsers
@@ -27,15 +27,15 @@ function ScrollToTop() {
     }
   }
 
-  if ( hideScroll ) {
-    return null
+  if (hideScroll) {
+    return null;
   } else {
     return (
-      <button className="scroll-top-button" onClick={ () => goToTop() }>
-        <img src={ arrowUp } alt="Scroll to top Button" />
+      <button className="scroll-top-button" onClick={() => goToTop()}>
+        <img src={arrowUp} alt="Scroll to top Button" />
       </button>
-    )
+    );
   }
 }
 
-export default ScrollToTop
+export default ScrollToTop;
