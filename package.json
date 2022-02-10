@@ -33,7 +33,7 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react-lazyload": "^2.6.7",
     "react-loading": "^2.0.3"
   }
